@@ -9,6 +9,7 @@ import java.util.Random;
  * @version 2016.02.29
  * modified by Michal Legocki, 10/8
  * to create a randomized playlist
+ * and to play a random song
  */
 public class MusicOrganizer
 {
@@ -60,6 +61,16 @@ public class MusicOrganizer
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+        }
+    }
+    
+    /**
+     * Play a random song
+     */
+    public void playRandomSong(){
+        Random rnd = new Random();
+        if(tracks.size() > 0) {
+            player.startPlaying(tracks.get(rnd.nextInt(tracks.size())).getFilename());
         }
     }
     
